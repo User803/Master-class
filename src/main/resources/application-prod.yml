@@ -1,0 +1,38 @@
+info:
+  app:
+    description: Master Spring Boot
+    name: Master Class
+    version: 1.0.0
+management:
+  endpoint:
+    health:
+      show-details: always
+  endpoints:
+    web:
+      exposure:
+        include: health,info,prometheus
+  info:
+    env:
+      enabled: true
+server:
+  error:
+    include-binding-errors: always
+    include-message: always
+    include-stacktrace: on-param
+spring:
+  datasource:
+    driver-class-name: org.h2.Driver
+    password: ''
+    url: jdbc:h2:mem:testdb
+    username: prod
+  h2:
+    console:
+      enabled: true
+      path: /h2
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  sql:
+    init:
+      mode: always
